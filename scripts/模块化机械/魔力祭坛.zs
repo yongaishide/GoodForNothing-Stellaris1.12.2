@@ -1,0 +1,537 @@
+#priority 50
+#loader crafttweaker reloadable
+
+import mods.modularmachinery.RecipePrimer;
+import mods.modularmachinery.RecipeBuilder;
+import mods.modularmachinery.IngredientArrayBuilder;
+import mods.modularmachinery.MachineModifier;
+import mods.modularmachinery.MachineBuilder;
+import mods.modularmachinery.RecipeModifierBuilder;
+import mods.modularmachinery.RecipeAdapterBuilder;
+import mods.modularmachinery.MultiblockModifierBuilder;
+import mods.modularmachinery.BlockArrayBuilder;
+
+
+import mods.modularmachinery.FactoryRecipeTickEvent;
+import mods.modularmachinery.RecipeTickEvent;
+import mods.modularmachinery.Sync;
+
+import crafttweaker.world.IBlockPos;
+import crafttweaker.world.IWorld;
+import crafttweaker.item.IItemStack;
+import crafttweaker.data.IData;
+import crafttweaker.item.IIngredient;
+import crafttweaker.oredict.IOreDictEntry;
+import crafttweaker.liquid.ILiquidStack;
+import mod.mekanism.gas.IGasStack;
+import mods.astralsorcery.Altar;
+// =============================================================魔力白雏菊==============================================================
+//最大线程
+MachineModifier.setMaxThreads("magic_power", 8);
+//活木
+RecipeBuilder.newBuilder("magic_power_1","magic_power",100)
+    .addManaInput(500)
+    .addItemInputs([
+    <aether_legacy:aether_log>,
+    ])
+    .addItemOutput(<botania:livingwood>)
+.build();
+//活石
+RecipeBuilder.newBuilder("magic_power_2","magic_power",100)
+    .addManaInput(500)
+    .addItemInputs([
+    <aether_legacy:holystone>,
+    ])
+    .addItemOutput(<botania:livingrock>)
+.build();
+
+// =============================================================微光魔力池==============================================================
+//最大线程
+MachineModifier.setMaxThreads("micro_light_magicpool", 256);
+RecipeBuilder.newBuilder("micro_light_magicpool_1","micro_light_magicpool",1)
+    .addManaInput(10000)
+    .addItemInputs([
+    <minecraft:emerald>,
+    ])
+    .addItemOutput(<additions:mana_emerald>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_2","micro_light_magicpool",1)
+    .addManaInput(3000)
+    .addItemInputs([
+    <thermalfoundation:material:160>,
+    ])
+    .addItemOutput(<botania:manaresource>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_3","micro_light_magicpool",1)
+    .addManaInput(27000)
+    .addItemInputs([
+    <thermalfoundation:storage_alloy>,
+    ])
+    .addItemOutput(<botania:storage>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_4","micro_light_magicpool",1)
+    .addManaInput(5000)
+    .addItemInputs([
+    <minecraft:dye:4>,
+    ])
+    .addItemOutput(<botanicadds:mana_lapis>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_5","micro_light_magicpool",1)
+    .addManaInput(45000)
+    .addItemInputs([
+    <minecraft:lapis_block>,
+    ])
+    .addItemOutput(<botanicadds:mana_lapis_block>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_6","micro_light_magicpool",1)
+    .addManaInput(500)
+    .addItemInputs([
+    <astralsorcery:itemusabledust>,
+    ])
+    .addItemOutput(<botania:manaresource:23>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_7","micro_light_magicpool",1)
+    .addManaInput(2000)
+    .addItemInputs([
+    <minecraft:coal>,
+    ])
+    .addItemOutput(<extrabotany:nightmarefuel>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_8","micro_light_magicpool",1)
+    .addManaInput(5000)
+    .addItemInputs([
+    <minecraft:string>,
+    ])
+    .addItemOutput(<botania:manaresource:16>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_9","micro_light_magicpool",1)
+    .addManaInput(5000)
+    .addItemInputs([
+    <minecraft:glass_bottle>,
+    ])
+    .addItemOutput(<botania:manabottle>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_10","micro_light_magicpool",1)
+    .addManaInput(150)
+    .addItemInputs([
+    <minecraft:glass>,
+    ])
+    .addItemOutput(<botania:managlass>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_11","micro_light_magicpool",1)
+    .addManaInput(20000)
+    .addItemInputs([
+    <minecraft:cookie>,
+    ])
+    .addItemOutput(<botania:manacookie>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_12","micro_light_magicpool",1)
+    .addManaInput(250)
+    .addItemInputs([
+    <minecraft:quartz>,
+    ])
+    .addItemOutput(<botania:quartz:1>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_13","micro_light_magicpool",1)
+    .addManaInput(1337)
+    .addItemInputs([
+    <minecraft:potato>,
+    ])
+    .addItemOutput(<botania:tinypotato>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_14","micro_light_magicpool",1)
+    .addManaInput(2500)
+    .addItemInputs([
+    <minecraft:tallgrass:1>,
+    ])
+    .addItemOutput(<botania:grassseeds>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_15","micro_light_magicpool",1)
+    .addManaInput(2500)
+    .addItemInputs([
+    <minecraft:deadbush>,
+    ])
+    .addItemOutput(<botania:grassseeds:1>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_16","micro_light_magicpool",1)
+    .addManaInput(5000)
+    .addItemInputs([
+    <minecraft:piston>,
+    ])
+    .addItemOutput(<botania:pistonrelay>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_17","micro_light_magicpool",1)
+    .addManaInput(6000)
+    .addItemInputs([
+    <minecraft:ender_pearl>,
+    ])
+    .addItemOutput(<botania:manaresource:1>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_18","micro_light_magicpool",1)
+    .addManaInput(10000)
+    .addItemInputs([
+    <minecraft:diamond>,
+    ])
+    .addItemOutput(<botania:manaresource:2>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_19","micro_light_magicpool",1)
+    .addManaInput(90000)
+    .addItemInputs([
+    <minecraft:diamond_block>,
+    ])
+    .addItemOutput(<botania:storage:3>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_20","micro_light_magicpool",233)
+    .addManaPerTickInput(100000)
+    .addItemInputs([
+    <contenttweaker:manbo>,
+    ])
+    .addItemOutput(<botania_tweaks:compressed_tiny_potato_5>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_21","micro_light_magicpool",23333)
+    .addManaPerTickInput(500000)
+    .addItemInputs([
+    <contenttweaker:manbo>,
+    ])
+    .addItemOutput(<botania_tweaks:compressed_tiny_potato_8>)
+.build();
+RecipeBuilder.newBuilder("micro_light_magicpool_21","micro_light_magicpool",1)
+    .addManaPerTickInput(1000)
+    .addItemInputs([
+    <ore:treeSapling>,
+    ])
+    .addItemOutput(<integrateddynamics:menril_sapling>)
+.build();
+//==========================================尘世精灵门======================================
+//最大线程
+MachineModifier.setMaxThreads("earthly_elf_gate", 256);
+RecipeBuilder.newBuilder("earthly_elf_gate_1","earthly_elf_gate",1)
+    .addManaInput(500)
+    .addItemInputs([
+    <botania:livingwood>,
+    ])
+    .addItemOutput(<botania:dreamwood>)
+.build();
+RecipeBuilder.newBuilder("earthly_elf_gate_2","earthly_elf_gate",1)
+    .addManaInput(500)
+    .addItemInputs([
+    <botania:manaresource>*2,
+    ])
+    .addItemOutput(<botania:manaresource:7>)
+.build();
+RecipeBuilder.newBuilder("earthly_elf_gate_3","earthly_elf_gate",1)
+    .addManaInput(4500)
+    .addItemInputs([
+    <botania:storage>*2,
+    ])
+    .addItemOutput(<botania:storage:2>)
+.build();
+RecipeBuilder.newBuilder("earthly_elf_gate_4","earthly_elf_gate",1)
+    .addManaInput(500)
+    .addItemInputs([
+    <botania:manaresource:1>*2,
+    ])
+    .addItemOutput(<botania:manaresource:8>)
+.build();
+RecipeBuilder.newBuilder("earthly_elf_gate_5","earthly_elf_gate",1)
+    .addManaInput(500)
+    .addItemInputs([
+    <botania:manaresource:2>,
+    ])
+    .addItemOutput(<botania:manaresource:9>)
+.build();
+RecipeBuilder.newBuilder("earthly_elf_gate_6","earthly_elf_gate",1)
+    .addManaInput(500)
+    .addItemInputs([
+    <botania:storage:3>,
+    ])
+    .addItemOutput(<botania:storage:4>)
+.build();
+RecipeBuilder.newBuilder("earthly_elf_gate_7","earthly_elf_gate",1)
+    .addManaInput(500)
+    .addItemInputs([
+    <minecraft:quartz>,
+    ])
+    .addItemOutput(<botania:quartz:5>)
+.build();
+RecipeBuilder.newBuilder("earthly_elf_gate_8","earthly_elf_gate",1)
+    .addManaInput(500)
+    .addItemInputs([
+    <botania:managlass>,
+    ])
+    .addItemOutput(<botania:elfglass>)
+.build();
+RecipeBuilder.newBuilder("earthly_elf_gate_9","earthly_elf_gate",1)
+    .addManaInput(500)
+    .addItemInputs([
+    <botania:livingrock>,
+    ])
+    .addItemOutput(<botanicadds:dreamrock>)
+.build();
+RecipeBuilder.newBuilder("earthly_elf_gate_10","earthly_elf_gate",1)
+    .addManaInput(500)
+    .addItemInputs([
+    <ore:logWood>,
+    ])
+    .addItemOutput(<botanicadds:elvenwood_log>)
+.build();
+RecipeBuilder.newBuilder("earthly_elf_gate_11","earthly_elf_gate",1)
+    .addManaInput(500)
+    .addItemInputs([
+    <botanicadds:mana_lapis>*2,
+    ])
+    .addItemOutput(<botanicadds:elven_lapis>)
+.build();
+RecipeBuilder.newBuilder("earthly_elf_gate_12","earthly_elf_gate",1)
+    .addManaInput(500)
+    .addItemInputs([
+    <botanicadds:mana_lapis_block>*2,
+    ])
+    .addItemOutput(<botanicadds:elven_lapis_block>)
+.build();
+//==========================================魔力反应装置======================================
+RecipeBuilder.newBuilder("magic_reaction_device_1","magic_reaction_device",20)
+    .addManaPerTickInput(25000)
+    .addItemInput(<botania:livingrock>*5).setChance(0)
+    .addItemInput(<minecraft:lapis_block>*4).setChance(0)
+    .addItemInputs([
+    <botania:manaresource:1>,
+    <botania:manaresource:2>,
+    <botania:manaresource>,
+    <additions:mana_emerald>,
+    <botanicadds:mana_lapis>,
+    ])
+    .addItemOutput(<botania:manaresource:4>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_2","magic_reaction_device",20)
+    .addManaPerTickInput(50000)
+    .addItemInput(<botanicadds:dreamrock>*4).setChance(0)
+    .addItemInput(<botanicadds:elven_lapis_block>*4).setChance(0)
+    .addItemInput(<botania:storage:1>).setChance(0)
+    .addItemInputs([
+    <additions:soul_steel>,
+    <botania:manaresource:8>,
+    <botania:manaresource:9>,
+    ])
+    .addItemOutput(<botanicadds:gaiasteel_ingot>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_3","magic_reaction_device",20)
+    .addManaInput(50000)
+    .addItemInput(<botania:livingrock>)
+    .addItemInputs([
+    <extrabotany:gildedmashedpotato>,
+    <additions:celestial_ingot>,
+    <botania:manaresource:14>,
+    <extrabotany:material>*3,
+    ])
+    .addItemOutput(<extrabotany:material:8>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_4","magic_reaction_device",20)
+    .addManaInput(50000)
+    .addItemInput(<botania:livingrock>)
+    .addItemInputs([
+    <botania:manaresource:14>,
+    <tconevo:metal:30>,
+    <extrabotany:gildedmashedpotato>,
+    <extrabotany:nightmarefuel>*3,
+    ])
+    .addItemOutput(<additions:nightmare>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_5","magic_reaction_device",20)
+    .addManaInput(150000)
+    .addItemInput(<botania:livingrock>)
+    .addItemInputs([
+    <botania:manaresource:14>,<botania:manaresource:14>,
+    <extrabotany:material:3>,<extrabotany:gildedmashedpotato>,
+    <botania:manaresource:5>,<botania:manaresource:5>,
+    <botania:manaresource:5>,<botania:manaresource:5>,
+    ])
+    .addItemOutput(<additions:orichalcum>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_6","magic_reaction_device",20)
+    .addManaInput(500000)
+    .addItemInput(<botania:livingrock>)
+    .addItemInputs([
+    <botania:manaresource:14>,<contenttweaker:gaia_essence>,
+    <contenttweaker:gaia_essence>,<contenttweaker:resonance_fragment>,
+    ])
+    .addItemOutput(<additions:soul_steel>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_7","magic_reaction_device",20)
+    .addManaInput(5000)
+    .addItemInput(<contenttweaker:programmed_circuit_3>).setChance(0)
+    .addItemInput(<botania:livingrock>)
+    .addItemInputs([
+    <additions:extremely_cold_ingot>,
+    <botania:rune>,
+    <botania:rune:7>,
+    <minecraft:packed_ice>,
+    ])
+    .addItemOutput(<additions:extreme_cold_rune>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_8","magic_reaction_device",20)
+    .addManaInput(5000)
+    .addItemInput(<contenttweaker:programmed_circuit_1>).setChance(0)
+    .addItemInput(<botania:livingrock>)
+    .addItemInputs([
+    <botania:manaresource:23>,
+    <botania:manaresource>,
+    <minecraft:dye:15>,
+    <minecraft:reeds>,
+    <minecraft:fishing_rod>,
+    ])
+    .addItemOutput(<botania:rune>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_9","magic_reaction_device",20)
+    .addManaInput(5000)
+    .addItemInput(<contenttweaker:programmed_circuit_1>).setChance(0)
+    .addItemInput(<botania:livingrock>)
+    .addItemInputs([
+    <botania:manaresource:23>,
+    <botania:manaresource>,
+    <ore:ingotBrickNether>,
+    <minecraft:gunpowder>,
+    <ore:cropNetherWart>,
+    ])
+    .addItemOutput(<botania:rune:1>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_10","magic_reaction_device",20)
+    .addManaInput(5000)
+    .addItemInput(<contenttweaker:programmed_circuit_1>).setChance(0)
+    .addItemInput(<botania:livingrock>)
+    .addItemInputs([
+    <botania:manaresource:23>,
+    <botania:manaresource>,
+    <ore:bricksStone>,
+    <ore:blockCoal>,
+    <ore:foodAllMushroom>,
+    ])
+    .addItemOutput(<botania:rune:2>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_11","magic_reaction_device",20)
+    .addManaInput(5000)
+    .addItemInput(<contenttweaker:programmed_circuit_1>).setChance(0)
+    .addItemInput(<botania:livingrock>)
+    .addItemInputs([
+    <botania:manaresource:23>,
+    <botania:manaresource>,
+    <ore:feather>,
+    <minecraft:string>,
+    ])
+    .addIngredientArrayInput(
+        IngredientArrayBuilder.newBuilder()
+        .addIngredients([
+            <minecraft:carpet>,
+            <minecraft:carpet:1>,
+            <minecraft:carpet:2>,
+            <minecraft:carpet:3>,
+            <minecraft:carpet:4>,
+            <minecraft:carpet:5>,
+            <minecraft:carpet:6>,
+            <minecraft:carpet:7>,
+            <minecraft:carpet:8>,
+            <minecraft:carpet:9>,
+            <minecraft:carpet:10>,
+            <minecraft:carpet:11>,
+            <minecraft:carpet:12>,
+            <minecraft:carpet:13>,
+            <minecraft:carpet:14>,
+            <minecraft:carpet:15>,
+        ])
+    )
+    .addItemOutput(<botania:rune:3>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_12","magic_reaction_device",20)
+    .addManaInput(5000)
+    .addItemInput(<contenttweaker:programmed_circuit_1>).setChance(0)
+    .addItemInput(<botania:livingrock>)
+    .addItemInputs([
+    <botania:manaresource>*5,
+    <botania:manaresource:1>,
+    ])
+    .addItemOutput(<botania:rune:8>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_13","magic_reaction_device",20)
+    .addManaInput(5000)
+    .addItemInput(<contenttweaker:programmed_circuit_2>).setChance(0)
+    .addItemInput(<botania:livingrock>)
+    .addItemInputs([
+    <botania:rune>,
+    <botania:rune:1>,
+    <ore:treeSapling>*3,
+    <minecraft:wheat>,
+    ])
+    .addItemOutput(<botania:rune:4>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_14","magic_reaction_device",20)
+    .addManaInput(5000)
+    .addItemInput(<contenttweaker:programmed_circuit_2>).setChance(0)
+    .addItemInput(<botania:livingrock>)
+    .addItemInputs([
+    <botania:rune:2>,
+    <botania:rune:3>,
+    <minecraft:sand>,
+    <ore:slimeball>,
+    <minecraft:melon>,
+    ])
+    .addItemOutput(<botania:rune:5>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_15","magic_reaction_device",20)
+    .addManaInput(5000)
+    .addItemInput(<contenttweaker:programmed_circuit_2>).setChance(0)
+    .addItemInput(<botania:livingrock>)
+    .addItemInputs([
+    <botania:rune:1>,
+    <botania:rune:3>,
+    <ore:treeLeaves>*3,
+    <minecraft:spider_eye>,
+    ])
+    .addItemOutput(<botania:rune:6>)
+.build();
+RecipeBuilder.newBuilder("magic_reaction_device_16","magic_reaction_device",20)
+    .addManaInput(5000)
+    .addItemInput(<contenttweaker:programmed_circuit_2>).setChance(0)
+    .addItemInput(<botania:livingrock>)
+    .addItemInputs([
+    <botania:rune>,
+    <botania:rune:2>,
+    <minecraft:snow>*2,
+    <minecraft:cake>,
+    ])
+    .addIngredientArrayInput(
+        IngredientArrayBuilder.newBuilder()
+        .addIngredients([
+            <minecraft:wool>,
+            <minecraft:wool:1>,
+            <minecraft:wool:2>,
+            <minecraft:wool:3>,
+            <minecraft:wool:4>,
+            <minecraft:wool:5>,
+            <minecraft:wool:6>,
+            <minecraft:wool:7>,
+            <minecraft:wool:8>,
+            <minecraft:wool:9>,
+            <minecraft:wool:10>,
+            <minecraft:wool:11>,
+            <minecraft:wool:12>,
+            <minecraft:wool:13>,
+            <minecraft:wool:14>,
+            <minecraft:wool:15>,
+        ])
+    )
+    .addItemOutput(<botania:rune:7>)
+.build();
+//==========================================尘世精灵魔力祭坛======================================
+//最大线程
+MachineModifier.setMaxThreads("earthly_elf_magicaltar", 16);
+//配方适配器
+RecipeAdapterBuilder.create("earthly_elf_magicaltar", "modularmachinery:micro_light_magicpool")
+    .build();
+RecipeAdapterBuilder.create("earthly_elf_magicaltar", "modularmachinery:earthly_elf_gate")
+    .build();
+RecipeAdapterBuilder.create("earthly_elf_magicaltar", "modularmachinery:magic_reaction_device")
+    .addModifier(RecipeModifierBuilder.create("modularmachinery:duration", "input", 0.1F, 1, false).build())
+    .build();
+RecipeAdapterBuilder.create("earthly_elf_magicaltar", "modularmachinery:magic_power")
+    .addModifier(RecipeModifierBuilder.create("modularmachinery:duration", "input", 0.1F, 1, false).build())
+    .build();
