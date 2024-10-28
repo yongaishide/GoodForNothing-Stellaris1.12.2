@@ -1,0 +1,16 @@
+{
+  "preset_block": "additions:gelei13",
+  "pools": [
+    {
+      "name": "block_itself_pool",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "additions:gelei13"
+        }
+      ]
+    }
+  ],
+  "preset_type": "additions:block_itself"
+}
