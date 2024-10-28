@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "additions:machine_casing_robust_tungstenst"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis\u003dy": {
+      "model": "additions:gelei7"
+    },
+    "axis\u003dz": {
+      "model": "additions:gelei7",
+      "x": 90
+    },
+    "axis\u003dx": {
+      "model": "additions:gelei7",
+      "x": 90,
+      "y": 90
+    }
+  }
+}
