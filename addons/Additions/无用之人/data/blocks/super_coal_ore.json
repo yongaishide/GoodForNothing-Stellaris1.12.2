@@ -1,0 +1,22 @@
+{
+  "item_block": {
+    "name": "超级煤矿石",
+    "ore_dict": "oreCoal",
+    "type": "additions:block_simple"
+  },
+  "name": "超级煤矿石",
+  "material": "minecraft:stone",
+  "place_sound": "minecraft:block.stone.place",
+  "break_sound": "minecraft:block.stone.break",
+  "hit_sound": "minecraft:block.stone.hit",
+  "step_sound": "minecraft:block.stone.step",
+  "fall_sound": "minecraft:block.stone.fall",
+  "hardness": 3.0,
+  "resistance": 10.0,
+  "harvest_level": 4,
+  "harvest_tool": "pickaxe",
+  "effective_tools": "pickaxe",
+  "xp_dropped_min": 1,
+  "xp_dropped_max": 1,
+  "type": "additions:simple"
+}
