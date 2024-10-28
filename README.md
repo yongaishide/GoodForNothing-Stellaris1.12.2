@@ -1,2 +1,2 @@
-# goodfornothing1.12.2
+# GoodForNothing:Stellaris1.12.2
 modpack
