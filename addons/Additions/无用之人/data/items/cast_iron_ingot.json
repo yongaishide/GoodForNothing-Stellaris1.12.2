@@ -1,0 +1,6 @@
+{
+  "name": "铸铁锭",
+  "ore_dict": "ingotCast_iron",
+  "creative_tab":"creativetab:draconicevolution",
+  "type": "additions:simple"
+}

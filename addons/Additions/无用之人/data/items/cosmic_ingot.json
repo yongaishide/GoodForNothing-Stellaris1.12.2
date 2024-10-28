@@ -1,0 +1,6 @@
+{
+  "name": "§5宇宙锭",
+  "tooltip": "§c§o寰宇之力，尽在其中",
+  "ore_dict": "ingotCosmic",
+  "type": "additions:simple"
+}

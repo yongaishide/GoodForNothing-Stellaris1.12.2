@@ -1,0 +1,6 @@
+{
+  "name": "§5终焉锭",
+  "tooltip": "由钢铁守护者掉落",
+  "ore_dict": "ingotFinal",
+  "type": "additions:simple"
+}

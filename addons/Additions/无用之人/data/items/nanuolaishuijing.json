@@ -1,0 +1,9 @@
+{
+  "name": "纳诺莱水晶",
+  "tooltip": [
+    "可由六级及以上的虚空矿物采掘机采得",
+    "概率随采掘机等级逐渐上升"
+  ],
+  "max_stack": 59,
+  "type": "additions:simple"
+}
